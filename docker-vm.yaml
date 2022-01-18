@@ -15,9 +15,9 @@ arch: default
 # Default: none (must be specified)
 images:
 # Try to use a local image first.
-- location: "~/Downloads/impish-server-cloudimg-amd64.img"
+- location: "~/Downloads/Rocky-8-GenericCloud-8.5-20211114.2.x86_64.qcow2"
   arch: "x86_64"
-- location: "~/Downloads/impish-server-cloudimg-arm64.img"
+- location: "~/Downloads/Rocky-8-GenericCloud-8.5.20211114.1.aarch64.qcow2"
   arch: "aarch64"
 
 # Download the file from the internet when the local file is missing.
