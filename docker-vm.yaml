@@ -102,12 +102,11 @@ provision:
       #!/bin/bash
       yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
       yum install -y docker-ce docker-ce-cli containerd.io
-      echo '{"hosts": ["tcp://127.0.0.1:2375", "unix:///var/run/docker.sock"]}' > /etc/docker/daemon.json
       mkdir -p /etc/systemd/system/docker.service.d/
       cat <<EOF > /etc/systemd/system/docker.service.d/docker.conf
       [Service]
       ExecStart=
-      ExecStart=/usr/bin/dockerd
+      ExecStart=/usr/bin/dockerd -H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock
       EOF
       systemctl daemon-reload
       systemctl start docker
